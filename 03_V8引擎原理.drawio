@@ -1,0 +1,121 @@
+<mxfile host="65bd71144e">
+    <diagram id="HqA3qdjGY-RFWI0U9V29" name="第 1 页">
+        <mxGraphModel dx="1002" dy="562" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="2336" background="#ffffff" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="11" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="2" target="6">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="2" value="JavaScript&lt;br&gt;源代码" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fad7ac;strokeColor=#b46504;fontStyle=1;fontColor=#000000;" vertex="1" parent="1">
+                    <mxGeometry x="10" y="210" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="AST&lt;br&gt;抽象语法树" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fad7ac;strokeColor=#b46504;fontColor=#000000;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="320" y="210" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="bytecode&lt;br&gt;字节码" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fad7ac;strokeColor=#b46504;fontColor=#000000;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="700" y="210" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="&lt;font color=&quot;#000000&quot;&gt;MachineCode&lt;br&gt;优化的机器码&lt;br&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fad7ac;strokeColor=#b46504;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="700" y="420" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="parse&lt;br&gt;（解析）" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#b0e3e6;strokeColor=#0e8088;fontStyle=1;fontColor=#000000;" vertex="1" parent="1">
+                    <mxGeometry x="160" y="210" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="Ignition&lt;br&gt;（解释）" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#b0e3e6;strokeColor=#0e8088;fontColor=#000000;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="500" y="210" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="TurboFan&lt;br&gt;（编译）" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#b0e3e6;strokeColor=#0e8088;fontColor=#000000;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="500" y="420" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="" style="shape=flexArrow;endArrow=classic;html=1;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="490" y="320" as="sourcePoint"/>
+                        <mxPoint x="540" y="270" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="13" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#000000;" edge="1" parent="1" source="2" target="6">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="490" y="320" as="sourcePoint"/>
+                        <mxPoint x="540" y="270" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="14" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#000000;" edge="1" parent="1" source="6" target="3">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="130" y="250" as="sourcePoint"/>
+                        <mxPoint x="180" y="250" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="15" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#000000;" edge="1" parent="1" source="3" target="8">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="450" y="239.5" as="sourcePoint"/>
+                        <mxPoint x="500" y="239.5" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="16" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#000000;" edge="1" parent="1" source="8" target="4">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="290" y="260" as="sourcePoint"/>
+                        <mxPoint x="340" y="260" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="640" y="240"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="24" value="" style="edgeStyle=none;html=1;strokeColor=#000000;fontColor=#000000;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="4">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="900" y="240" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="18" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#000000;" edge="1" parent="1" source="8" target="9">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="300" y="270" as="sourcePoint"/>
+                        <mxPoint x="350" y="270" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="19" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;strokeColor=#000000;" edge="1" parent="1" source="4">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="310" y="280" as="sourcePoint"/>
+                        <mxPoint x="560" y="420" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="20" value="" style="endArrow=classic;html=1;strokeColor=#000000;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" target="5">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="610" y="450" as="sourcePoint"/>
+                        <mxPoint x="690" y="450" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="610" y="450"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="22" value="" style="endArrow=classic;html=1;strokeColor=#000000;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="820" y="450" as="sourcePoint"/>
+                        <mxPoint x="900" y="450" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="830" y="450"/>
+                            <mxPoint x="820" y="450"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="23" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;strokeColor=#FF0000;" edge="1" parent="1" source="5">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="770" y="280" as="sourcePoint"/>
+                        <mxPoint x="760" y="270" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="26" value="&amp;nbsp;Deoptimization" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=#000000;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="754" y="326" width="110" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" value="收集信息，比如类型信息" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=#000000;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="404" y="329" width="160" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="28" value="运行结果" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=#000000;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="915" y="225" width="70" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="29" value="运行结果" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=#000000;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="915" y="435" width="70" height="30" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

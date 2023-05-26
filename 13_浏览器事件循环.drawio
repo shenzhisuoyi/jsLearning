@@ -1,0 +1,85 @@
+<mxfile host="65bd71144e">
+    <diagram id="Tq3WyTOJpNYdXONCqfgC" name="第 1 页">
+        <mxGraphModel dx="1002" dy="562" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" background="#ffffff" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b0e3e6;strokeColor=#0e8088;" vertex="1" parent="1">
+                    <mxGeometry x="130" y="70" width="250" height="380" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="" style="shape=image;html=1;verticalLabelPosition=bottom;verticalAlign=top;imageAspect=1;aspect=fixed;image=img/clipart/Gear_128x128.png" vertex="1" parent="1">
+                    <mxGeometry x="470" y="375.5" width="52" height="61" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#23445d;fillColor=#bac8d3;" vertex="1" parent="1">
+                    <mxGeometry x="165" y="130" width="180" height="300" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="&lt;font color=&quot;#000000&quot;&gt;JavaScript进程&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="210" y="80" width="100" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="&lt;font color=&quot;#000000&quot;&gt;执行上下文栈&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="205" y="180" width="100" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="函数2" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#b46504;fillColor=#fad7ac;fontColor=#000000;" vertex="1" parent="1">
+                    <mxGeometry x="190" y="290" width="130" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="函数1" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#b46504;fillColor=#fad7ac;fontColor=#000000;" vertex="1" parent="1">
+                    <mxGeometry x="190" y="360" width="130" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d0cee2;strokeColor=#56517e;" vertex="1" parent="1">
+                    <mxGeometry x="640" y="40" width="230" height="190" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="DOM监听" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#b46504;fillColor=#fad7ac;fontColor=#000000;" vertex="1" parent="1">
+                    <mxGeometry x="700" y="50" width="130" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="XMLHttpRequest" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#b46504;fillColor=#fad7ac;fontColor=#000000;" vertex="1" parent="1">
+                    <mxGeometry x="700" y="100" width="130" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="定时器" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#b46504;fillColor=#fad7ac;fontColor=#000000;" vertex="1" parent="1">
+                    <mxGeometry x="700" y="160" width="130" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fad9d5;strokeColor=#ae4132;" vertex="1" parent="1">
+                    <mxGeometry x="620" y="371" width="350" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="onClick" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#b46504;fillColor=#fad7ac;fontColor=#000000;" vertex="1" parent="1">
+                    <mxGeometry x="630" y="386" width="70" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="ajax 回调函数" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#b46504;fillColor=#fad7ac;fontColor=#000000;" vertex="1" parent="1">
+                    <mxGeometry x="720" y="386" width="90" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="timer函数" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#b46504;fillColor=#fad7ac;fontColor=#000000;" vertex="1" parent="1">
+                    <mxGeometry x="840" y="386" width="70" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="" style="shape=flexArrow;endArrow=classic;html=1;fontColor=#000000;entryX=0.005;entryY=0.657;entryDx=0;entryDy=0;fillColor=#CCCCFF;entryPerimeter=0;" edge="1" parent="1" target="11">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="340" y="165" as="sourcePoint"/>
+                        <mxPoint x="641.1500000000001" y="167.56999999999994" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="20" value="" style="shape=flexArrow;endArrow=classic;html=1;fontColor=#000000;fillColor=#CCCCFF;exitX=0.544;exitY=1.006;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="11">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="350" y="175" as="sourcePoint"/>
+                        <mxPoint x="765" y="370" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="21" value="" style="shape=flexArrow;endArrow=classic;html=1;fontColor=#000000;fillColor=#CCCCFF;exitX=0.544;exitY=1.006;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="620.1199999999999" y="400" as="sourcePoint"/>
+                        <mxPoint x="530" y="400" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="22" value="" style="shape=flexArrow;endArrow=classic;html=1;fontColor=#000000;fillColor=#CCCCFF;exitX=0.544;exitY=1.006;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1.023;entryY=0.903;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="6">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="469.9999999999999" y="401.63" as="sourcePoint"/>
+                        <mxPoint x="372.65999999999997" y="400.005" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="23" value="执行上下文栈中的执行上下文都执行完毕之后，检查是否有任务加入到任务队列" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#000000;" vertex="1" parent="1">
+                    <mxGeometry x="383" y="95" width="220" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" value="如果任务队列不为空，则依次取出任务队列中的任务，加入到执行上下文栈中执行" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#000000;" vertex="1" parent="1">
+                    <mxGeometry x="392" y="311" width="220" height="60" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
