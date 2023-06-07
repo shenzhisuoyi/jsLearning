@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 发布订阅者模式：有发布者、订阅者与信号中心，发布者和订阅者不需要知道彼此的存在。定义一个事件总线，定义一个订阅事件和发布事件。
+    // 某个任务执行完成，就向信号中心发送信号。其它任务向信号中心订阅信号，可以知道什么时候执行任务。
+    class EventEmitter {
+      constructor() {
+        this.subs = {}
+      }
+      $on(eventType, fn) {
+        if (!this.subs[eventType]) {
+          this.subs[eventType] = []
+        }
+        this.subs[eventType].push(fn)
+      }
+      $emit(eventType) {
+        if (this.subs[eventType]) {
+          this.subs[eventType].forEach((handler) => {
+            handler()
+          })
+        }
+      }
+    }
+    let em = new EventEmitter()
+    em.$on('click', () => {
+      console.log('on click1');
+    })
+    em.$on('click', () => {
+      console.log('on click2');
+    })
+    em.$emit('click')
+  </script>
+</body>
+
+</html>

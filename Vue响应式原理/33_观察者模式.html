@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 观察者模式：只有发布者与订阅者，它们之间存在依赖，并且要知道彼此的存在。
+    // 发布者：
+    // 需要一个数组保存订阅者
+    // 提供一个添加订阅者的方法
+    // 提供一个发送通知方法，执行订阅者的更新
+    // 订阅者：
+    // 提供一个更新方法，当在发布者通知时可以执行更新
+
+    // 发布者
+    class Dep {
+      constructor() {
+        this.subs = []
+      }
+      // 添加订阅者
+      addSub(sub) {
+        if (sub && sub.update) {
+          this.subs.push(sub)
+        }
+      }
+      // 发布通知
+      notify() {
+        this.subs.forEach((sub) => {
+          sub.update()
+        })
+      }
+    }
+    // 订阅者/观察者
+    class Watcher {
+      update() {
+        console.log('update');
+      }
+    }
+    let dep = new Dep()
+    let watcher = new Watcher()
+    // 添加订阅者
+    dep.addSub(watcher)
+    // 发布通知
+    dep.notify()
+  </script>
+</body>
+
+</html>

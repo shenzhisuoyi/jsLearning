@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <h1>表达式</h1>
+    <h1>{{message}}</h1>
+    <h1>{{age}}</h1>
+    msg: <h1 v-text="msg"></h1>
+    count: <input type="text" v-model="count" />
+  </div>
+  <script>
+    // 发布者，作用是收集依赖（watcher），在getter中收集依赖，在setter中通知依赖
+    class Dep {
+      constructor() {
+        this.sbus = []
+      }
+      // 保存订阅者
+      addSub(sub) {
+        this.sbus.push(sub)
+      }
+      // 通知订阅者
+      notify() {
+        this.sbus.forEach((sub) => {
+          // 执行更新
+          sub.update()
+        })
+      }
+    }
+
+    // 订阅者，作用是数据变化后触发依赖更新视图
+    class Watcher {
+      constructor(vm, key, cb) {
+        this.vm = vm
+        // data中属性名称
+        this.key = key
+        // 回调函数，负责更新视图
+        this.cb = cb
+        Dep.target = this
+        // 获取更新前的旧值
+        this.oldValue = vm[key]
+        Dep.target = null
+      }
+      // 更新操作
+      update() {
+        let newValue = this.vm[this.key]
+        if (newValue === this.oldValue) {
+          return
+        }
+
+        this.cb(newValue)
+      }
+    }
+
+    // let dep = new Dep()
+    // let watcher = new Watcher('why')
+    // dep.addSub(watcher)
+    // dep.notify()
+
+    // 0.创建Vue构造函数
+    class Vue {
+      constructor(options) {
+        // 1.接收传递过来的选项，并保存
+        this.$options = options || {}
+        // 获取选项参数中的data
+        this.$data = options.data || {}
+        // el传过来的可能是字符串'#app'，也可能是一整个节点数据
+        this.$el = ((typeof options.el) === 'string') ? document.querySelector(options.el) : options.el
+        // 2.把data转换成getter/setter，并注入到Vue实例中
+        this._proxyData(this.$data)
+        // this.$data = this._proxyData(this.$data)
+
+        // 3.调用Observer对象，监听数据的变化（把$data数据变成响应式）
+        new Observer(this.$data)
+
+        // 4.调用compiler解析指令/差值表达式
+        new Compiler(this)
+      }
+      _proxyData(data) {
+        Object.keys(data).forEach((key) => {
+          Object.defineProperty(this, key, {
+            get() {
+              return data[key]
+            },
+            set(newValue) {
+              if (data[key] === newValue) {
+                return
+              }
+              data[key] = newValue
+            }
+          })
+        })
+      }
+    }
+
+    class Observer {
+      constructor(data) {
+        this.walk(data)
+      }
+      walk(data) {
+        if (!data || (typeof data) !== 'object') {
+          return
+        }
+        Object.keys(data).forEach((key) => {
+          this.defineReactive(data, key, data[key])
+        })
+      }
+      defineReactive(obj, key, value) {
+        let that = this
+        let dep = new Dep()
+        // 将对象中的属性也变成响应式
+        this.walk(value)
+        Object.defineProperty(obj, key, {
+          get() {
+            Dep.target && dep.addSub(Dep.target)
+            return value
+          },
+          set(newValue) {
+            if (newValue === value) {
+              return
+            }
+            value = newValue
+            // 新增加的数据也应该是响应式的
+            that.walk(newValue)
+            // 发送通知，更新视图
+            dep.notify()
+          }
+        })
+      }
+    }
+
+    class Compiler {
+      constructor(vm) {
+        this.el = vm.$el
+        this.vm = vm
+        this.compile(this.el)
+      }
+      // 编译模板
+      compile(el) {
+        // 获取el的所有子节点
+        let childNodes = el.childNodes
+        Array.from(childNodes).forEach((node) => {
+          if (this.isTextNode(node)) {
+            // 处理文本节点
+            this.compileText(node)
+          } else if (this.isElementNode(node)) {
+            // 处理元素节点
+            this.compileElement(node)
+          }
+          // 判断node是否还有子节点
+          if (node.childNodes && node.childNodes.length) {
+            this.compile(node)
+          }
+        })
+
+      }
+      // 编译文本节点，处理差值表达式
+      compileText(node) {
+        let reg = new RegExp(/\{\{(.+)\}\}/)
+        let value = node.textContent
+        if (value.match(reg)) {
+          let key = reg.exec(value)[1]
+          // 使用Vue实例上的值替换掉节点的内容
+          node.textContent = value.replace(reg, this.vm[key])
+          new Watcher(this.vm, key, (newValue) => {
+            node.textContent = newValue
+          })
+        }
+      }
+      // 编译元素节点，处理指令
+      compileElement(node) {
+        Array.from(node.attributes).forEach((attr) => {
+          // 获取属性的名字
+          let attrName = attr.name
+          // 判断是否是指令
+          if (this.isDirective(attrName)) {
+            // 有可能是， v-text：text，v-model：model
+            attrName = attrName.substr('2')
+            // 获取指令中的值，v-text：msg，v-model：count
+            let key = attr.value
+            this.update(node, key, attrName)
+          }
+        })
+      }
+      // 更新展示
+      update(node, key, attrName) {
+        let updateFn = this[`${attrName}Updater`]
+        updateFn && updateFn(node, this.vm[key])
+      }
+      // 处理v-text指令
+      textUpdater(node, value) {
+        node.textContent = value
+      }
+      // 处理v-model指令
+      modelUpdater(node, value) {
+        node.value = value
+      }
+      // 判断元素的属性是否为指令
+      isDirective(attrName) {
+        return attrName.startsWith('v-')
+      }
+      // 判断节点是否为文本节点
+      isTextNode(node) {
+        return node.nodeType === 3
+      }
+      // 判断节点是否为元素节点
+      isElementNode(node) {
+        return node.nodeType === 1
+      }
+    }
+
+    let vm = new Vue({
+      el: '#app',
+      data: {
+        message: 'why',
+        age: 18,
+        msg: 'msg22',
+        count: 'count11',
+        person: {
+          name: 7
+        }
+      }
+    })
+    // 测试Observer
+    // vm.message = { msg: 9 }
+  </script>
+</body>
+
+</html>
